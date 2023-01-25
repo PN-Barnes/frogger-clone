@@ -25,7 +25,7 @@ const moveFrogger = (event) => {
       console.log(currentIndex);
       break;
     case 'ArrowLeft':
-      if (currentIndex - 1 < 0) {
+      if (currentIndex - 1 < 0 || currentIndex % 9 === 0) {
         return;
       }
       squares[currentIndex].classList.remove('frog');
@@ -33,7 +33,7 @@ const moveFrogger = (event) => {
       console.log(currentIndex);
       break;
     case 'ArrowRight':
-      if (currentIndex + 1 >= squares.length) {
+      if (currentIndex + 1 >= squares.length || currentIndex % 9 === 8) {
         return;
       }
       squares[currentIndex].classList.remove('frog');
