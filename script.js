@@ -4,6 +4,13 @@ const startButton = document.querySelector('#start-pause');
 const squares = document.querySelectorAll('.grid div');
 console.log(squares.length);
 let currentIndex = squares.length - 5;
+let carRightStart = 54;
+let carLeftStart = 53;
+let carRightIndex;
+let carRightEnd = 62;
+let carLeftIndex;
+let carLeftEnd = 45;
+
 const moveFrogger = (event) => {
   switch (event.key) {
     case 'ArrowUp':
@@ -12,6 +19,7 @@ const moveFrogger = (event) => {
       }
       squares[currentIndex].classList.remove('frog');
       currentIndex -= 9;
+      console.log(currentIndex);
       break;
     case 'ArrowDown':
       if (currentIndex + 9 >= squares.length) {

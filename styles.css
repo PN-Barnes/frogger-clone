@@ -32,3 +32,13 @@
 .frog {
   background-color: green;
 }
+
+.carLeftPos {
+  background-color: black;
+}
+.carRightPos {
+  background-color: black;
+}
+.log {
+  background-color: brown;
+}
