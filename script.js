@@ -58,13 +58,11 @@ document.addEventListener('keyup', (event) => {
 });
 
 function autoMoveLog() {
-  console.log('movelog');
   leftLogs.forEach((leftLog) => moveLogLeft(leftLog));
   rightLogs.forEach((rightLog) => moveLogRight(rightLog));
 }
 
 function autoMoveCar() {
-  console.log('movecar');
   leftCars.forEach((leftCar) => moveCarLeft(leftCar));
   rightCars.forEach((rightCar) => moveCarRight(rightCar));
 }
