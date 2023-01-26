@@ -6,7 +6,6 @@ const leftLogs = document.querySelectorAll('.log-left');
 const rightLogs = document.querySelectorAll('.log-right');
 const leftCars = document.querySelectorAll('.car-left');
 const rightCars = document.querySelectorAll('.car-right');
-console.log(squares.length);
 let currentIndex = squares.length - 5;
 let carRightStart = 54;
 let carLeftStart = 53;
@@ -23,7 +22,6 @@ const moveFrogger = (event) => {
       }
       squares[currentIndex].classList.remove('frog');
       currentIndex -= 9;
-      console.log(currentIndex);
       break;
     case 'ArrowDown':
       if (currentIndex + 9 >= squares.length) {
