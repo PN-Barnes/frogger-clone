@@ -155,5 +155,5 @@ function moveCarRight(rightCar) {
       break;
   }
 }
-setInterval(autoMoveLog, 1000);
-setInterval(autoMoveCar, 1500);
+// setInterval(autoMoveLog, 1000);
+// setInterval(autoMoveCar, 1500);
