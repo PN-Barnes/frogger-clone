@@ -4,6 +4,8 @@ const startButton = document.querySelector('#start-pause');
 const squares = document.querySelectorAll('.grid div');
 const leftLogs = document.querySelectorAll('.log-left');
 const rightLogs = document.querySelectorAll('.log-right');
+const leftCars = document.querySelectorAll('.car-left');
+const rightCars = document.querySelectorAll('.car-right');
 console.log(squares.length);
 let currentIndex = squares.length - 5;
 let carRightStart = 54;
@@ -61,6 +63,11 @@ function autoMoveLog() {
   rightLogs.forEach((rightLog) => moveLogRight(rightLog));
 }
 
+function autoMoveCar() {
+  console.log('movecar');
+  leftCars.forEach((leftCar) => moveCarLeft(leftCar));
+  rightCars.forEach((rightCar) => moveCarRight(rightCar));
+}
 function moveLogLeft(leftLog) {
   switch (true) {
     case leftLog.classList.contains('l1'):
@@ -110,4 +117,43 @@ function moveLogRight(rightLog) {
       break;
   }
 }
+function moveCarLeft(leftCar) {
+  switch (true) {
+    case leftCar.classList.contains('c1'):
+      leftCar.classList.remove('c1');
+      leftCar.classList.add('c2');
+      break;
+    case leftCar.classList.contains('c2'):
+      leftCar.classList.remove('c2');
+      leftCar.classList.add('c3');
+      break;
+    case leftCar.classList.contains('c3'):
+      leftCar.classList.remove('c3');
+      leftCar.classList.add('c1');
+      break;
+
+    default:
+      break;
+  }
+}
+function moveCarRight(rightCar) {
+  switch (true) {
+    case rightCar.classList.contains('c1'):
+      rightCar.classList.remove('c1');
+      rightCar.classList.add('c3');
+      break;
+    case rightCar.classList.contains('c2'):
+      rightCar.classList.remove('c2');
+      rightCar.classList.add('c1');
+      break;
+    case rightCar.classList.contains('c3'):
+      rightCar.classList.remove('c3');
+      rightCar.classList.add('c2');
+      break;
+
+    default:
+      break;
+  }
+}
 setInterval(autoMoveLog, 1000);
+setInterval(autoMoveCar, 1500);
