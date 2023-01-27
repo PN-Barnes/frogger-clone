@@ -7,12 +7,7 @@ const rightLogs = document.querySelectorAll('.log-right');
 const leftCars = document.querySelectorAll('.car-left');
 const rightCars = document.querySelectorAll('.car-right');
 let currentIndex = squares.length - 5;
-let carRightStart = 54;
-let carLeftStart = 53;
-let carRightIndex;
-let carRightEnd = 62;
-let carLeftIndex;
-let carLeftEnd = 45;
+let timerId;
 
 const moveFrogger = (event) => {
   switch (event.key) {
@@ -63,6 +58,12 @@ function autoMoveLog() {
 function autoMoveCar() {
   leftCars.forEach((leftCar) => moveCarLeft(leftCar));
   rightCars.forEach((rightCar) => moveCarRight(rightCar));
+}
+
+function moveElements() {
+  autoMoveCar();
+  autoMoveLog();
+  loseGame();
 }
 function moveLogLeft(leftLog) {
   switch (true) {
@@ -151,5 +152,20 @@ function moveCarRight(rightCar) {
       break;
   }
 }
+
+function loseGame() {
+  if (
+    squares[currentIndex].classList.contains('c1') ||
+    squares[currentIndex].classList.contains('l4') ||
+    squares[currentIndex].classList.contains('l5')
+  ) {
+    result.textContent = 'GAME OVER';
+    clearInterval(timerId);
+    squares[currentIndex].classList.remove('frog');
+    document.removeEventListener('keyup', moveFrogger);
+  }
+}
+function startGame() {}
+timerId = setInterval(moveElements, 1000);
 // setInterval(autoMoveLog, 1000);
 // setInterval(autoMoveCar, 1500);
